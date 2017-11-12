@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="nhut.master.cs" Inherits="nhut" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cừa hàng đồ chơi XÌ TRUM Shop</title>
+
+    <link href="Scripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Scripts/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="Scripts/DataTables-1.10.15/media/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="css/nhut.css" rel="stylesheet" />
+    <link href="css/comboboxautocomplete.css" rel="stylesheet" />
+    <link href="css/simple-sidebar.css" rel="stylesheet" />
+    <link href="Scripts/chosen_v1.7.0/chosen.min.css" rel="stylesheet" />
+    <link href="css/customDatatable.css" rel="stylesheet" />
+    <asp:PlaceHolder runat="server">
+        
+    </asp:PlaceHolder>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap.validator.js"></script>
+    <script src="Scripts/DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+    <script src="Scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="Scripts/xitrumshop/nhut.js"></script>
+    <script src="Scripts/comboboxautocomplete.js"></script>
+    <script src="Scripts/chosen_v1.7.0/chosen.jquery.min.js"></script>
+    <%--chosen textbox and select--%>
+    <script src="Scripts/chosen_v1.7.0/chosen.proto.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script src="Scripts/xitrumshop/master.js"></script>
+</head>
+<body>
+
+   
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="active">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">XÌ TRUM SHOP
+                    </a>
+                </li>
+                <li>
+                    <img src="images/xitrum.jpg" width="150" height="150" />
+                    
+                </li>
+                <li data-toggle="collapse" data-target="#cuahang" class="collapsed active">
+                    <a href="#"><span class="glyphicon glyphicon-home" style="margin-right: 10px"></span>Cửa hàng<span class="glyphicon glyphicon-menu-down"></span></a>
+                </li>
+                <ul class="sub-menu collapse in" id="cuahang">
+                    <li><a href="xemkho.aspx"><span class="glyphicon glyphicon-record" style="margin-right: 10px"></span>Kho hàng</a></li>
+                    <li><a href="Banhang.aspx"><span class="glyphicon glyphicon-export" style="margin-right: 10px"></span>Bán hàng</a></li>
+                    <li><a href="gia.aspx"><span class="glyphicon glyphicon-usd" style="margin-right: 10px"></span>Chỉnh giá</a></li>
+                    <li><a href="nhaphang.aspx"><span class="glyphicon glyphicon-import" style="margin-right: 10px"></span>Nhập hàng</a></li>
+                   
+                </ul>
+               
+                 <li id="danhmuc" data-toggle="collapse" data-target="#divdanhmuc"  >
+                    <a href="#"><span class="glyphicon glyphicon-list" style="margin-right: 10px"></span>Danh mục<span class="glyphicon glyphicon-menu-down"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="divdanhmuc">
+                     <li><a href="Sanpham.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Sản phẩm mới</a></li>
+                     <li><a href="donvitinh.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Đơn vị tính</a></li>
+                </ul> 
+                <li id="quantri">
+                    <a href="#"><span class="glyphicon glyphicon-lock" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="divquantri">
+                    <li><a href="lichsunhaphang.aspx"><span class="glyphicon glyphicon-import" style="margin-right: 10px"></span>Lịch sử nhập hàng</a></li>
+                    <li><a href="lichsubanhang.aspx"><span class="glyphicon glyphicon-export" style="margin-right: 10px"></span>Lịch sử bán hàng</a></li>
+                    <li><a href="Dieuchinhgia_admin.aspx"><span class="glyphicon glyphicon-usd" style="margin-right: 10px"></span>Đặt giá bán (ADMIN )</a></li>
+                    <li><a href="kho.aspx"><span class="glyphicon glyphicon-record" style="margin-right: 10px"></span>Xem kho</a></li>
+                    <li><a href="tracuutheothang.aspx"><span class="glyphicon glyphicon-search" style="margin-right: 10px"></span>Tra cứu theo tháng</a></li>
+                </ul>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper top">
+
+
+            <div id="panel-top" class="panel top">
+                <%--  navbar-fixed-top--%>
+                <div class="panel-heading center">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <button type="button" class="btn btn-default  pull-left " data-target="#menu-toggle" id="menu-toggle">
+                                    <span class=" glyphicon glyphicon-menu-hamburger"></span>
+
+                                </button>
+
+                            </div>
+                            <div class="h4 col-xs-8">
+                                XÌ TRUM SHOP - QUẢN LÝ BÁN HÀNG 
+
+                            </div>
+                           <%-- <div class="pull-right col-xs-2">
+                                <a href="Banhang.aspx" class="panel-heading"><span class="glyphicon glyphicon-export"></span>Bán hàng</a>
+                            </div>--%>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-content">
+                </div>
+
+            </div>
+
+          
+                <div class="panel">
+                    <div id="noidung" class="body-content">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+
+
+                    </div>
+                </div>
+         
+
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <%--<footer>
+                <p>&copy; <%: DateTime.Now.Year %> - </p>
+            </footer>--%>
+    <div class="modal" tabindex="-1" id="loginModal" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thông tin đăng nhập</h4>
+                    <div class="form-group">
+                        <div id="modal_loi" class="alert loi hidden">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group">
+                            <label for="modal_username">Tài khoản</label>
+                            <input onfocus="this.select();" type="text" id="modal_username" class="form-control" value="hieuhuy" />
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_password">Mật khẩu</label>
+                            <input onfocus="this.select();" type="password" id="modal_password" class="form-control" />
+                        </div>
+                        <input type="hidden" id="check" value="0" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="submitLogin();">Đăng nhập</button>
+                    <%--<button class="btn btn-primary" data-dismiss="modal">Thoát</button>--%>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

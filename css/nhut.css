@@ -1,0 +1,85 @@
+﻿body {
+   
+}
+
+.panel {
+     background-color:white ;
+     color: #06425C;
+}
+#menu-toggle span{
+     color:white ;
+     
+}
+#menu-toggle{
+     background-color:transparent;
+}
+.panel-heading {
+    background-color:#06425C;
+color:white;
+}
+#noidung {
+     background-color: white;
+}
+.center {
+    text-align:center;
+}
+.left {
+    text-align:left;
+}
+.right{
+     text-align:right;
+}
+.nav > li > a {
+background-color:#06425C;
+color:white;
+}
+ul.nav a:hover { color: #06425C !important; background-color:#CDBB79; }
+#menu-chinh {
+    margin-top:-1px;
+    margin-bottom:0px;
+    margin-left:-1px;
+    margin-right:0px;
+    background-color:#06425C;
+color:white;
+}
+.nDropdown{
+    background-color:#06425C;
+color:white;
+}
+.numericCol{
+    text-align:right;
+}
+.loi{
+    background-color:red;
+    color:white;
+    font-size:16px;
+    text-align:center;
+}
+.noibat {
+    padding-top:20px;
+    padding-bottom:10px;
+    
+}
+.giantrai{
+    margin-left:30px;
+}
+.top{
+    padding-top:0;
+}
+.thanhcong{
+   
+    background-color:#3c763d;
+    color:yellow;
+    font-size:16px;
+    text-align:center;
+}
+.ThongbaoModal_Dialog {
+    background-color: blue;
+    color: white;
+}
+.thongbaomodal_Dialog_loi {
+    background-color: red;
+    color: white;
+}
+
+
