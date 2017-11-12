@@ -14,14 +14,25 @@
     );
     $('#radioLe').click(function () {
         $('#giaban').val(sessionStorage["giabanle"]);
+        $('#giaban_show').val(putComma(sessionStorage["giabanle"]));
+       
+
         $('#thanhtien').val(
             parseInt($("#soluong").val()) * parseInt($("#giaban").val())
+        );
+        $('#thanhtien_show').val(
+           putComma( parseInt($("#soluong").val()) * parseInt($("#giaban").val()))
         );
     });
     $('#radioSi').click(function () {
         $('#giaban').val(sessionStorage["giabansi"]);
+        $('#giaban_show').val(putComma(sessionStorage["giabansi"]));
+       
         $('#thanhtien').val(
             parseInt($("#soluong").val()) * parseInt($("#giaban").val())
+        );
+        $('#thanhtien_show').val(
+            putComma(parseInt($("#soluong").val()) * parseInt($("#giaban").val()))
         );
     });
     $("#soluong").chichoso();  //chỉ cho nhập số
@@ -29,7 +40,9 @@
         $('#thanhtien').val(
             parseInt($("#soluong").val()) * parseInt($("#giaban").val())
         );
-
+        $('#thanhtien_show').val(
+            putComma(parseInt($("#soluong").val()) * parseInt($("#giaban").val()))
+        );
     });
     $("#modal_soluong").on('input', function () {    //cột thành tiền tự tính
         $('#modal_thanhtien').val(
@@ -59,11 +72,15 @@ function laygiaban(mahang) {
                 sessionStorage["giabanle"] = item.giabanle;
                 sessionStorage["giabansi"] = item.giabansi;
                 $('#giaban').val(sessionStorage["giabanle"]);//.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                $('#giaban_show').val(putComma(sessionStorage["giabanle"]));
                 $('#kho').val(item.soluong);
             });
 
             //thanhtien nhay theo
             $('#thanhtien').val(parseInt($('#soluong').val()) * parseInt($('#giaban').val()));
+            $('#thanhtien_show').val(
+                putComma(parseInt($("#soluong").val()) * parseInt($("#giaban").val()))
+            );
         }
     });
 
@@ -171,7 +188,7 @@ function loadHangdangban() {
     });
 }
 function luuphieubantam() {
-    
+
     var thanhtien = parseInt($('#thanhtien').val());
     if (!validSoluong()) {
         hienthongbao(0, "Hàng trong kho không đủ hoặc số lượng để trống!");
@@ -186,7 +203,7 @@ function luuphieubantam() {
     var mahang = $('#mahang').val();
     var soluong = parseInt($('#soluong').val());
     var giaban = parseInt($('#giaban').val());
-    
+
     $.ajax({
         type: 'post',
         contentType: 'application/json;charset=utf-8',
@@ -198,6 +215,9 @@ function luuphieubantam() {
                 hienthongbao(1, 'Bán mã hàng:' + mahang + ' số lượng: ' + soluong + ' thành công');
                 $('#soluong').val('1');
                 $('#thanhtien').val(parseInt($('#soluong').val()) * parseInt($('#giaban').val()));
+                $('#thanhtien_show').val(
+                    putComma(parseInt($("#soluong").val()) * parseInt($("#giaban").val()))
+                );
                 loadHangdangban();
             } else {
                 hienthongbao(0, 'Hàng đang nằm trên phiếu bán');

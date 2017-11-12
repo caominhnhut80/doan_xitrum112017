@@ -31,6 +31,7 @@
     <%--chosen textbox and select--%>
     <script src="Scripts/chosen_v1.7.0/chosen.proto.min.js"></script>
     <!-- Menu Toggle Script -->
+    <script src="https://cdn.datatables.net/plug-ins/1.10.16/api/sum().js"></script>
     <script src="Scripts/xitrumshop/master.js"></script>
 </head>
 <body>
@@ -65,6 +66,13 @@
                 </li>
                 <ul class="sub-menu collapse" id="divdanhmuc">
                      <li><a href="Sanpham.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Sản phẩm mới</a></li>
+                     <li><a href="donvitinh.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Đơn vị tính</a></li>
+                </ul> 
+                <li id="baocao" data-toggle="collapse" data-target="#divbaocao"  >
+                    <a href="#"><span class="glyphicon glyphicon-list" style="margin-right: 10px"></span>Báo cáo<span class="glyphicon glyphicon-menu-down"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="divbaocao">
+                     <li><a href="rpNhaphang.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Lịch sử nhập hàng</a></li>
                      <li><a href="donvitinh.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Đơn vị tính</a></li>
                 </ul> 
                 <li id="quantri">

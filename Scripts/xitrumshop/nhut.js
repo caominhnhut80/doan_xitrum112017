@@ -122,7 +122,9 @@ function tinhtongtien(data) {
     })
     return tong;
 }
-
+function putComma(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 
 
 

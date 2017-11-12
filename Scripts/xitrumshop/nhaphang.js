@@ -2,30 +2,30 @@
     loadtenhang();
     loadHangdangnhapkho();
     $('#tenhang').focus();
-   
+
     $('#tenhang').change(function () {
         $('#mahang').val($('#tenhang').val());
-    })
+    });
     $("#soluong").chichoso();  //chỉ cho nhập số
     $("#giagoc").chichoso();
     $("#soluong,#giagoc").on('input', function () {    //cột thành tiền tự tính
         $('#thanhtien').val(
-                parseInt($("#soluong").val()) * parseInt($("#giagoc").val())
-                );
+            parseInt($("#soluong").val()) * parseInt($("#giagoc").val())
+        );
 
     });
     $("#modal_soluong").chichoso();  //chỉ cho nhập số
     $("#modal_giagoc").chichoso();
     $("#modal_soluong,#modal_giagoc").on('input', function () {    //cột thành tiền tự tính
         $('#modal_thanhtien').val(
-                parseInt($("#modal_soluong").val()) * parseInt($("#modal_giagoc").val())
-                );
+            parseInt($("#modal_soluong").val()) * parseInt($("#modal_giagoc").val())
+        );
 
     });
     $('#okThongbao').click(function () {
         $('#ThongbaoModal').modal('hide');
     });
-})
+});
 function loadHangdangnhapkho() {
     $.ajax({
         type: "post",
@@ -36,9 +36,9 @@ function loadHangdangnhapkho() {
             var objdata = $.parseJSON(data.d);
             $('#datatable').DataTable({
                 data: objdata,
-                
+
                 columns: [
-                    {'title':'ID','data':'id'},
+                    { 'title': 'ID', 'data': 'id' },
                     {
                         'title': 'Mã hàng',
                         'data': 'mahang'
@@ -47,34 +47,34 @@ function loadHangdangnhapkho() {
                         'title': 'Tên hàng',
                         'data': 'tenhang'
                     },
-                     {
-                         'title': 'Đơn vị tính',
-                         'data': 'donvitinh'
-                     },
-                      {
-                          'title': 'Số lượng',
-                          'data': 'soluong'
-                      },
-                      {
-                          'title': 'Giá gốc',
-                          'data': 'gianhap',
-                          'render': $.fn.dataTable.render.number('.', ',', 0, '')
-                      },
-                      {
-                          'title': 'Thành tiền',
-                          'data': 'thanhtien',
-                          'render': $.fn.dataTable.render.number('.', ',', 0, '')
-                      },
-                      {
-                          'title': 'Loại phiếu',
-                          'data': 'phieu'
-                      },
+                    {
+                        'title': 'Đơn vị tính',
+                        'data': 'donvitinh'
+                    },
+                    {
+                        'title': 'Số lượng',
+                        'data': 'soluong'
+                    },
+                    {
+                        'title': 'Giá gốc',
+                        'data': 'gianhap',
+                        'render': $.fn.dataTable.render.number('.', ',', 0, '')
+                    },
+                    {
+                        'title': 'Thành tiền',
+                        'data': 'thanhtien',
+                        'render': $.fn.dataTable.render.number('.', ',', 0, '')
+                    },
+                    {
+                        'title': 'Loại phiếu',
+                        'data': 'phieu'
+                    },
                     {
                         'title': '',
                         'data': 'mahang',
                         'render': function (mahang) {
                             return '<a href="#" class="btn btn-success btn-sm" onclick="hienModal(\'' + mahang + '\');">Sửa</a>' +
-                                '<a href="#"  class="btn btn-danger btn-sm" style="margin-left:10px;" onclick="xoahang(\'' + mahang + '\');">Xóa</a>'
+                                '<a href="#"  class="btn btn-danger btn-sm" style="margin-left:10px;" onclick="xoahang(\'' + mahang + '\');">Xóa</a>';
                         }
                     }
                 ],
@@ -94,10 +94,10 @@ function loadHangdangnhapkho() {
 
                 },
                 "columnDefs": [
-                    { className: "dt-center", "targets": [0, 1, 2,3,7] },//canh giưa all body và header
-                    { className: "dt-right", "targets": [ 4, 5,6] },  // canh phải những cột tiền
+                    { className: "dt-center", "targets": [0, 1, 2, 3, 7] },//canh giưa all body và header
+                    { className: "dt-right", "targets": [4, 5, 6] },  // canh phải những cột tiền
                     { className: "dt-nowrap", "targets": [8] },
-                    { "sClass": "numericCol", "aTargets": [4, 5,6] }
+                    { "sClass": "numericCol", "aTargets": [4, 5, 6] }
                 ]
                 ////đưa tổng toa vào footer dùng sum.js api của datatable
                 //drawCallback: function () {
@@ -117,9 +117,9 @@ function loadHangdangnhapkho() {
                     var tongtien = parseInt(data.d);
                     $('#tongtien').val(tongtien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                 }
-            })
+            });
         }
-    })
+    });
 }
 function loadtenhang() {
     $('#tenhang').find('option').remove();  //chỉ load 1 danh sách
@@ -134,12 +134,12 @@ function loadtenhang() {
                 $('#tenhang').append($("<option/>", {
                     value: item.mahang,
                     text: item.tenhang
-                }))
-            })
+                }));
+            });
             $("#tenhang").chosen({ no_results_text: "Không tìm thấy" });
             $('#mahang').val($('#tenhang option:first').val());
         }
-    })
+    });
 }
 function luukho() {
     anStatus();
@@ -173,7 +173,7 @@ function luukho() {
                 hienthongbao(0, 'Hàng đang nằm trên phiếu nhập');
             }
         }
-    })
+    });
 	
 }
 function hienModal(mahang) {
@@ -197,9 +197,9 @@ function getOnehanglenModal(mahang) {
                 $("#modal_giagoc").val(item.gianhap);
                 $("#modal_thanhtien").val(item.thanhtien);
                 $('#modal_soluong').focus();
-            })
+            });
         }
-    })
+    });
 }
 function UpdateSP() {
     var mahang = $('#modal_mahang').val();
@@ -230,7 +230,7 @@ function UpdateSP() {
             }
 
         }
-    })
+    });
 
 }
 function xoahang(mahang) {
@@ -251,7 +251,7 @@ function xoahang(mahang) {
                 }
 
             }
-        })
+        });
     }
 
 }
@@ -293,7 +293,7 @@ function hoanthanhphieunhap(ghichu) {
             }
 
         }
-    })
+    });
 
 }
 
