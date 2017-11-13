@@ -11,6 +11,7 @@
         <%--  --%>
         <div class="col-sm-8 col-sm-offset-1">
             <div class="h4 text-center text-info">CHI TIẾT PHIẾU NHẬP HÀNG</div>
+            <input type="text" class="center-block center" id="chitietphieu" disabled size="40" />
             <table id="datatableRight" style="width: 100%" class="cell-border stripe compact"></table>
         </div>
 

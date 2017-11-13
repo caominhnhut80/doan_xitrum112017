@@ -79,6 +79,27 @@ public class banhang : System.Web.Services.WebService
         }
     }
     [WebMethod]
+    public long tongtien_phieuban(int phieu)
+    {
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+            SqlCommand cmd = new SqlCommand("banhang_tongtienphieu", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@phieu", phieu);
+            try
+            {
+                con.Open();
+                return (long)cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                return -1;
+                //throw ex;
+
+            }
+        }
+    }
+    [WebMethod]
     public bool themvaophieubantam(string mahang, int soluong, int giaban, int thanhtien)
     {
         using (SqlConnection con = new SqlConnection(ketnoi.kn))

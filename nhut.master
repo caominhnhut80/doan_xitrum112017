@@ -73,7 +73,7 @@
                 </li>
                 <ul class="sub-menu collapse" id="divbaocao">
                      <li><a href="rpNhaphang.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Lịch sử nhập hàng</a></li>
-                     <li><a href="donvitinh.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Đơn vị tính</a></li>
+                     <li><a href="rpBanhang.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Lịch sử bán hàngh</a></li>
                 </ul> 
                 <li id="quantri">
                     <a href="#"><span class="glyphicon glyphicon-lock" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>
