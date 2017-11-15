@@ -1,4 +1,9 @@
 ﻿$(function () {
+   
+    if (sessionStorage.getItem('logged')=='false') {
+        alert('Bạn cần phải đăng nhập');
+        window.location.replace('default.aspx');
+    }
     var gb = 0;
     loadtenhang();
     loadHangdangban();
@@ -356,7 +361,7 @@ function hoanthanhphieuban(ghichu) {
         type: 'post',
         contentType: 'application/json;charset=utf-8',
         url: 'banhang.asmx/hoanthanhphieuban',
-        data: "{nhanvien:1,ghichu:'" + ghichu + "'}",
+        data: "{nhanvien:"+ sessionStorage.getItem('id') + ",ghichu:'" + ghichu + "'}",
         dataType: 'json',
         success: function (data) {
             if (data.d) {   // thành công

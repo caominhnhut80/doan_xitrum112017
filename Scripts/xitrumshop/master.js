@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $('#tbUser').append('<h6><label><i>Đang đăng nhập:</i> ' + sessionStorage.getItem('hoten') + '</label><button id="btnLogout" onclick="logout();"><i><u>Đăng xuất</u></i></button></h6>');
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
@@ -47,4 +48,14 @@ function submitLogin() {
         $('#modal_password').focus();
     }
 };
-
+function logout() {
+    var result = confirm("Bạn có chắc đăng xuất không?");
+    if (result) {
+        sessionStorage.removeItem('logged');
+        sessionStorage.removeItem('id');
+        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('hoten');
+        sessionStorage.removeItem('quyen');
+        window.location.replace('default.aspx');
+    }
+}

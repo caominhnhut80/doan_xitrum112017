@@ -1,4 +1,8 @@
 ﻿$(function () {
+    if (sessionStorage.getItem('logged') == 'false') {
+        alert('Bạn cần phải đăng nhập');
+        window.location.replace('default.aspx');
+    }
     loadtenhang();
     loadHangdangnhapkho();
     $('#tenhang').focus();
@@ -282,7 +286,7 @@ function hoanthanhphieunhap(ghichu) {
         type: 'post',
         contentType: 'application/json;charset=utf-8',
         url: 'nhaphang.asmx/hoanthanhphieunhap',
-        data: "{nhanvien:1,ghichu:'" + ghichu + "'}",
+        data: "{nhanvien:" + sessionStorage.getItem('id') + ",ghichu:'" + ghichu + "'}",
         dataType: 'json',
         success: function (data) {
             if (data.d) {   // thành công

@@ -28,6 +28,7 @@ function loadallphieuban() {
                     { 'title': 'Tổng tiền', 'data': 'tong', 'render': $.fn.dataTable.render.number('.', ',', 0, '') },
                     //{ 'title': 'Nhân viên nhập', 'data': 'hoten' },
                     { 'title': 'User NV', 'data': 'username' },
+                    { 'title': 'Ghi chú', 'data': 'ghichu' },
                     {
                         'title': '',
                         'data': 'phieu',
@@ -53,9 +54,9 @@ function loadallphieuban() {
 
                 },
                 "columnDefs": [
-                    { className: "dt-center", "targets": [0, 1, 5] },//canh giưa all body và header
+                    { className: "dt-center", "targets": [0, 1, 4,5] },//canh giưa all body và header
                     { className: "dt-right", "targets": [2, 3] },  // canh phải những cột tiền
-                    { className: "dt-nowrap", "targets": [5] },
+                    { className: "dt-nowrap", "targets": [6] },
                     { "sClass": "numericCol", "aTargets": [2, 3] }
 
                 ]
