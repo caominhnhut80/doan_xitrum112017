@@ -1,4 +1,8 @@
 ﻿$(function () {
+    if (sessionStorage.getItem('logged') == 'false') {
+        alert('Bạn cần phải đăng nhập');
+        window.location.replace('default.aspx');
+    }
     $('#tbUser').append('<h6><label><i>Đang đăng nhập:</i> ' + sessionStorage.getItem('hoten') + '</label><button id="btnLogout" onclick="logout();"><i><u>Đăng xuất</u></i></button></h6>');
     $("#menu-toggle").click(function (e) {
         e.preventDefault();

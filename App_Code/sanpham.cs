@@ -74,6 +74,7 @@ public class sanpham : System.Web.Services.WebService
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@mahang", mahang);
             cmd.Parameters.AddWithValue("@tenhang", tenhang);
+            cmd.Parameters.AddWithValue("@tenhang", tenhang);
             cmd.Parameters.AddWithValue("@donvitinh", donvitinh);
             try
             {

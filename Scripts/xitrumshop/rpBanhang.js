@@ -67,6 +67,7 @@ function loadallphieuban() {
     });
 }
 function chitietphieu(phieu) {
+    $('#hiddenPhieu').val(phieu);
     //xử lý tiêu đề
     $.ajax({
         type: "post",

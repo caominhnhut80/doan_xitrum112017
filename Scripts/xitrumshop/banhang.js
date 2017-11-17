@@ -1,9 +1,6 @@
 ﻿$(function () {
    
-    if (sessionStorage.getItem('logged')=='false') {
-        alert('Bạn cần phải đăng nhập');
-        window.location.replace('default.aspx');
-    }
+    
     var gb = 0;
     loadtenhang();
     loadHangdangban();

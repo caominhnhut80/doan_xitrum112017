@@ -2,7 +2,16 @@
     sessionStorage.setItem('logged',false);
     $('#loginModal').modal('show');
     $('#tbUser').focus();
+
+    $('#tbPass').on('keypress', function (event) {
+        if (event.which == 13 || event.keyCode == 13) {
+            login();
+            return false;
+        }
+        return true;
+    });
 })
+
 function login() {
     var username = $('#tbUser').val();
     var password = $('#tbPass').val();
@@ -25,7 +34,7 @@ function login() {
                 sessionStorage.setItem('username', item.username);
                 sessionStorage.setItem('hoten', item.hoten);
                 sessionStorage.setItem('quyen', item.quyen);
-                alert('Đăng nhập thành công ! Chào mừng ' + item.username);
+               // alert('Đăng nhập thành công ! Chào mừng ' + item.username);
                 window.location.replace('banhang.aspx');
 
             });
