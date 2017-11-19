@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $('#wrapper').toggleClass('toggled');
     loadallphieunhap();
 });
 function loadallphieunhap() {

@@ -1,5 +1,6 @@
 ﻿$(function () {
-    if (sessionStorage.getItem('logged') == 'false') {
+    
+    if (sessionStorage.getItem('id') == null || parseInt(sessionStorage.getItem('id')) == 0) {
         alert('Bạn cần phải đăng nhập');
         window.location.replace('default.aspx');
     }

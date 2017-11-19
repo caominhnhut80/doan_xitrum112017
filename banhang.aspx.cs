@@ -11,4 +11,17 @@ public partial class banhang : System.Web.UI.Page
     {
 
     }
+
+    protected void btnReport_Click(object sender, EventArgs e)
+    {
+        Session["loai_report"] = 0;
+
+        openWindow("../frmReport.aspx");
+
+    }
+    public void openWindow(string url)
+    {
+        Page.ClientScript.RegisterStartupScript(this.GetType(), "openWindow", "window.open(\""+url+"\");", true);
+        
+    }
 }

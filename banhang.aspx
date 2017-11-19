@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/nhut.master" AutoEventWireup="true" CodeFile="banhang.aspx.cs" Inherits="banhang" %>
 
+<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <script src="Scripts/xitrumshop/banhang.js"></script>
 
@@ -23,7 +25,9 @@
                     </div>
 
                 </div>
-
+                <form runat="server">
+                    <asp:button ID="btnReport" runat="server" Text="In phiếu bán hàng" OnClick="btnReport_Click"></asp:button>
+                </form>
             </div>
         </div>
         <div class=" col-xs-4 ">

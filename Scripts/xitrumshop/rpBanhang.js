@@ -1,5 +1,7 @@
 ﻿$(function () {
+    $('#wrapper').toggleClass('toggled');
     loadallphieuban();
+
 });
 
 function loadallphieuban() {

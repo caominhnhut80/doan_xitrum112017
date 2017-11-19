@@ -54,36 +54,24 @@
                     <a href="#"><span class="glyphicon glyphicon-home" style="margin-right: 10px"></span>Cửa hàng<span class="glyphicon glyphicon-menu-down"></span></a>
                 </li>
                 <ul class="sub-menu collapse in" id="cuahang">
-                    <li><a href="xemkho.aspx"><span class="glyphicon glyphicon-record" style="margin-right: 10px"></span>Kho hàng</a></li>
+                      <li><a href="nhaphang.aspx"><span class="glyphicon glyphicon-import" style="margin-right: 10px"></span>Nhập hàng</a></li>
                     <li><a href="Banhang.aspx"><span class="glyphicon glyphicon-export" style="margin-right: 10px"></span>Bán hàng</a></li>
                     <li><a href="gia.aspx"><span class="glyphicon glyphicon-usd" style="margin-right: 10px"></span>Chỉnh giá</a></li>
-                    <li><a href="nhaphang.aspx"><span class="glyphicon glyphicon-import" style="margin-right: 10px"></span>Nhập hàng</a></li>
-                   
                 </ul>
                
                  <li id="danhmuc" data-toggle="collapse" data-target="#divdanhmuc"  >
                     <a href="#"><span class="glyphicon glyphicon-list" style="margin-right: 10px"></span>Danh mục<span class="glyphicon glyphicon-menu-down"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="divdanhmuc">
-                     <li><a href="Sanpham.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Sản phẩm mới</a></li>
+                     <li><a href="Sanpham.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Sản phẩm</a></li>
                      <li><a href="donvitinh.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Đơn vị tính</a></li>
                 </ul> 
-                <li id="baocao" data-toggle="collapse" data-target="#divbaocao"  >
-                    <a href="#"><span class="glyphicon glyphicon-list" style="margin-right: 10px"></span>Báo cáo<span class="glyphicon glyphicon-menu-down"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="divbaocao">
-                     <li><a href="rpNhaphang.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Lịch sử nhập hàng</a></li>
-                     <li><a href="rpBanhang.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Lịch sử bán hàngh</a></li>
-                </ul> 
+                
                 <li id="quantri">
                     <a href="#"><span class="glyphicon glyphicon-lock" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="divquantri">
-                    <li><a href="lichsunhaphang.aspx"><span class="glyphicon glyphicon-import" style="margin-right: 10px"></span>Lịch sử nhập hàng</a></li>
-                    <li><a href="lichsubanhang.aspx"><span class="glyphicon glyphicon-export" style="margin-right: 10px"></span>Lịch sử bán hàng</a></li>
-                    <li><a href="Dieuchinhgia_admin.aspx"><span class="glyphicon glyphicon-usd" style="margin-right: 10px"></span>Đặt giá bán (ADMIN )</a></li>
-                    <li><a href="kho.aspx"><span class="glyphicon glyphicon-record" style="margin-right: 10px"></span>Xem kho</a></li>
-                    <li><a href="tracuutheothang.aspx"><span class="glyphicon glyphicon-search" style="margin-right: 10px"></span>Tra cứu theo tháng</a></li>
+                    <li><a href="thongke.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Thống kê</a></li>
                 </ul>
             </ul>
         </div>

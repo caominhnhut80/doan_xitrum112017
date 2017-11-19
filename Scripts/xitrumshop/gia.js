@@ -1,4 +1,8 @@
 ﻿$(function () {
+    if (parseInt(sessionStorage.getItem('quyen')) == 2) {  //nhân viên
+        alert('Bạn chưa được cấp quyền chức năng này');
+        window.location.replace('default.aspx');
+    }
     getallGia();
     $("#modal_gia").chichoso();
     var gg;  //giá gốc

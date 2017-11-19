@@ -29,7 +29,7 @@ function login() {
                     return;
                 }
                 //thành công
-                sessionStorage.setItem('logged', true);
+                
                 sessionStorage.setItem('id', item.id);
                 sessionStorage.setItem('username', item.username);
                 sessionStorage.setItem('hoten', item.hoten);
