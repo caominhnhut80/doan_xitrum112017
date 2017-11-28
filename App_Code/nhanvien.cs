@@ -55,4 +55,131 @@ public class nhanvien : System.Web.Services.WebService
        
         return nt.ConvertDataTabletoString(ds.Tables[0]);
     }
+    [WebMethod]
+    public string nhanvien_get()
+    {
+
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("nhanvien_get", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                con.Open();
+                SqlDataAdapter sa = new SqlDataAdapter(cmd);
+                sa.Fill(ds);
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return nt.ConvertDataTabletoString(ds.Tables[0]);
+    }
+    [WebMethod]
+    public bool nhanvien_them(string username,string password,string hoten,int quyen)
+    {
+        bool kq=false;
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("nhanvien_them", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@hoten", hoten);
+            cmd.Parameters.AddWithValue("@quyen", quyen);
+            try
+            {
+                con.Open();
+                if ((int)cmd.ExecuteScalar() > 0)
+                    return true;
+                else
+                    return false;
+              
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return kq;
+    }
+    [WebMethod]
+    public bool nhanvien_xoa(int id)
+    {
+        bool kq = false;
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("nhanvien_xoa", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                con.Open();
+                if ((int)cmd.ExecuteScalar() > 0)
+                    return true;
+                else
+                    return false;
+
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return kq;
+    }
+    [WebMethod]
+    public bool nhanvien_sua(int id,string username, string password, string hoten, int quyen)
+    {
+        bool kq = false;
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("nhanvien_sua", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@hoten", hoten);
+            cmd.Parameters.AddWithValue("@quyen", quyen);
+            try
+            {
+                con.Open();
+                if ((int)cmd.ExecuteScalar() > 0)
+                    return true;
+                else
+                    return false;
+
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return kq;
+    }
 }

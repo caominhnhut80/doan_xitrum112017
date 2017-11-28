@@ -71,6 +71,7 @@
                     <a href="#"><span class="glyphicon glyphicon-lock" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="divquantri">
+                    <li><a href="frmNhanvien.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Quản lý tài khoản</a></li>
                     <li><a href="thongke.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Thống kê</a></li>
                 </ul>
             </ul>

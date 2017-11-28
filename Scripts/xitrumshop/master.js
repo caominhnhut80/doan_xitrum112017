@@ -10,9 +10,10 @@
         $("#wrapper").toggleClass("toggled");
     });
     $('#quantri').click(function (e) {
-        //var check = $('#check').val();
-        var check = sessionStorage["logged"];
-        if (check !=1) {
+        var check = $('#check').val();
+        var check = sessionStorage["quyen"];  //quyen=0 : admin
+        if (check != 0) {
+            alert('Bạn chưa được cấp quyền quản trị!');
             $('#loginModal').modal('show');
             $('#modal_password').focus();
         }
