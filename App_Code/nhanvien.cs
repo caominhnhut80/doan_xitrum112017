@@ -56,6 +56,34 @@ public class nhanvien : System.Web.Services.WebService
         return nt.ConvertDataTabletoString(ds.Tables[0]);
     }
     [WebMethod]
+    public string nhanvien_get1nv(int manv)
+    {
+
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("nhanvien_get1nv", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@manv", manv);
+            try
+            {
+                con.Open();
+                SqlDataAdapter sa = new SqlDataAdapter(cmd);
+                sa.Fill(ds);
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return nt.ConvertDataTabletoString(ds.Tables[0]);
+    }
+    [WebMethod]
     public string nhanvien_get()
     {
 
@@ -65,6 +93,7 @@ public class nhanvien : System.Web.Services.WebService
 
             SqlCommand cmd = new SqlCommand("nhanvien_get", con);
             cmd.CommandType = CommandType.StoredProcedure;
+           
             try
             {
                 con.Open();

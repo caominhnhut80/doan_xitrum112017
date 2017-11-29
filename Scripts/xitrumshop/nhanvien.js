@@ -126,11 +126,55 @@ function xoanv(id) {
         })
     }
 }
-function suadvt(id) {
-    var username = $('#username').val();
-    var password = $('#password').val();
-    var tennhanvien = $('#tennhanvien').val();
-    var quyen = parseInt($('#quyen').val());
+function loadQuyenModal() {
+    $('#modal_quyen').find('option').remove();
+    $.ajax({
+        url: "quyen.asmx/quyen_get",
+        method: "post",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            var objdata = $.parseJSON(data.d);
+            $.each(objdata, function (i, item) {
+                $('#modal_quyen').append($("<option/>", {
+                    value: item.id,
+                    text: item.tenquyen
+                }
+                ));
+            });
+        }
+    });
+}
+function suanv(id) {
+    loadQuyenModal();
+    $.ajax({
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        url: "nhanvien.asmx/nhanvien_get1nv",
+        data: "{ manv: " + id + "}",
+        dataType: "json",
+        success: function (data) {
+            $('#EditModal').modal('show');
+            var objdata = $.parseJSON(data.d);
+            $.each(objdata, function (i, item) {
+
+                $('#modal_id').val(id);
+                $('#modal_username').val(item.username);
+                $('#modal_password').val(item.password);
+                $('#modal_tennhanvien').val(item.hoten);
+                $("#modal_quyen").val(item.quyen).change();
+                $('#modal_username').focus();
+            })
+
+        }
+    })
+}
+function UpdateNV() {
+    var id = $('#modal_id').val();
+    var username = $('#modal_username').val();
+    var password = $('#modal_password').val();
+    var tennhanvien = $('#modal_tennhanvien').val();
+    var quyen = parseInt($('#modal_quyen').val());
     if (username == '' || password == '' || tennhanvien == '') {
         alert('Vui lòng nhập Username,password và họ tên');
         return;
@@ -138,42 +182,20 @@ function suadvt(id) {
     $.ajax({
         type: "POST",
         url: "nhanvien.asmx/nhanvien_sua",
-        data: "{id:" +id +",username:'" + username + "',password:'" + password + "',hoten:'" + tennhanvien + "',quyen:" + quyen + " }",
+        data: "{id:" + id + ",username:'" + username + "',password:'" + password + "',hoten:'" + tennhanvien + "',quyen:" + quyen + " }",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            $('#EditModal').modal('show');
-            var objdata = $.parseJSON(data.d);
-            $.each(objdata, function (i, item) {
-                $('#modal_id').val(item.id);
-                $('#modal_donvitinh').val(item.donvitinh);
-                $('#modal_donvitinh').select().focus();
-            })
-
-
-        }
-
-    })
-}
-function UpdateDVT() {
-    var id = parseInt($('#modal_id').val());
-    var tendonvitinh = $('#modal_donvitinh').val();
-    if (tendonvitinh == '') return;
-    $.ajax({
-        type: "POST",
-        url: "donvitinh.asmx/suaDonvitinh",
-        data: "{id:" + id + ",tendonvitinh:'" + tendonvitinh + "'}",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            if (msg.d) {
-                hienthongbao(1, 'Sửa thành công');
+            if (!data.d) {   //ko thành công
+                hienthongbao(0, 'Sửa nhân viên thất bại');
+            } else {   // thành công
+                hienthongbao(1, 'Cập nhật nhanvien: ' + tennhanvien + ' thành công');
                 $('#EditModal').modal('hide');
-            } else {
-                hienthongbao(0, 'Sửa thất bại');
-                $('#tendonvitinh').focus();
+
             }
         }
 
     })
+
 }
+  
