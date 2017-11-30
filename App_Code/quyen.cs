@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 /// <summary>
@@ -49,5 +46,98 @@ public class quyen : System.Web.Services.WebService
 
         return nt.ConvertDataTabletoString(ds.Tables[0]);
     }
+    [WebMethod]
+    public string quyen_get1(int id)
+    {
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
 
+            SqlCommand cmd = new SqlCommand("quyen_get1", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                con.Open();
+                SqlDataAdapter sa = new SqlDataAdapter(cmd);
+                sa.Fill(ds);
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return nt.ConvertDataTabletoString(ds.Tables[0]);
+    }
+    [WebMethod]
+    public bool quyen_them(string tenquyen)
+    {
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+            SqlCommand cmd = new SqlCommand("quyen_them", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@tenquyen", tenquyen);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw ex;
+
+            }
+        }
+    }
+    [WebMethod]
+    public bool quyen_xoa(int id)
+    {
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+            SqlCommand cmd = new SqlCommand("quyen_xoa", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw ex;
+
+            }
+        }
+    }
+    [WebMethod]
+    public bool quyen_sua(int id, string tenquyen)
+    {
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+            SqlCommand cmd = new SqlCommand("quyen_sua", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@tenquyen", tenquyen);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw ex;
+
+            }
+        }
+    }
 }

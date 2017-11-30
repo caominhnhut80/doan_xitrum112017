@@ -1,9 +1,9 @@
 ﻿$(function () {
     
-    if (sessionStorage.getItem('id') == null || parseInt(sessionStorage.getItem('id')) == 0) {
-        alert('Bạn cần phải đăng nhập');
-        window.location.replace('default.aspx');
-    }
+    //if (sessionStorage.getItem('id') == null || parseInt(sessionStorage.getItem('id')) == 0) {
+    //    alert('Bạn cần phải đăng nhập');
+    //    window.location.replace('default.aspx');
+    //}
     $('#tbUser').append('<h6><label><i>Đang đăng nhập:</i> ' + sessionStorage.getItem('hoten') + '</label><button id="btnLogout" onclick="logout();"><i><u>Đăng xuất</u></i></button></h6>');
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
@@ -14,8 +14,8 @@
         var check = sessionStorage["quyen"];  //quyen=0 : admin
         if (check != 0) {
             alert('Bạn chưa được cấp quyền quản trị!');
-            $('#loginModal').modal('show');
-            $('#modal_password').focus();
+            //$('#loginModal').modal('show');
+            //$('#modal_password').focus();
         }
         else {
             $('#divquantri').collapse('toggle');

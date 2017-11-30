@@ -1,7 +1,7 @@
 ﻿$(function () {
-    if (parseInt(sessionStorage.getItem('quyen')) == 2) {  //nhân viên
+    if (parseInt(sessionStorage.getItem('quyen')) != 1) {  //1: chủ, chủ mới đc nhập giá bán
         alert('Bạn chưa được cấp quyền chức năng này');
-        window.location.replace('default.aspx');
+        window.location.replace('WaitingPage.aspx');
     }
     getallGia();
     $("#modal_gia").chichoso();

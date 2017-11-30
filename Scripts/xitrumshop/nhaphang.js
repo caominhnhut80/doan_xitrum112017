@@ -1,7 +1,8 @@
 ﻿$(function () {
-    if ( parseInt(sessionStorage.getItem('quyen')) == 2) {  //nhân viên
+    if ( parseInt(sessionStorage.getItem('quyen')) !=1) {  //1: chủ mới đc nhập
         alert('Bạn chưa được cấp quyền chức năng này');
-        window.location.replace('default.aspx');
+        
+        window.location.replace('WaitingPage.aspx');
     }
     loadtenhang();
     loadHangdangnhapkho();

@@ -1,7 +1,11 @@
 ﻿$(function () {
-    sessionStorage.setItem('logged',false);
-    $('#loginModal').modal('show');
-    $('#tbUser').focus();
+   sessionStorage.setItem('logged',false);
+    
+    
+        $('#loginModal').modal('show');
+        $('#tbUser').focus();
+    
+  
 
     $('#tbPass').on('keypress', function (event) {
         if (event.which == 13 || event.keyCode == 13) {
