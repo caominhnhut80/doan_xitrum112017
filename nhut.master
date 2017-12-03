@@ -55,7 +55,7 @@
                 </li>
                 <ul class="sub-menu collapse in" id="cuahang">
                     <li><a href="nhaphang.aspx"><span class="glyphicon glyphicon-import" style="margin-right: 10px"></span>Nhập hàng</a></li>
-                    <li><a href="Banhang.aspx"><span class="glyphicon glyphicon-export" style="margin-right: 10px"></span>Bán hàng</a></li>
+                    <li><a href="Banhang.aspx"><span class="glyphicon glyphicon-shopping-cart" style="margin-right: 10px"></span>Bán hàng</a></li>
                     <li><a href="gia.aspx"><span class="glyphicon glyphicon-usd" style="margin-right: 10px"></span>Chỉnh giá</a></li>
                 </ul>
 
@@ -67,14 +67,14 @@
                     <li><a href="donvitinh.aspx"><span class="glyphicon glyphicon-gbp" style="margin-right: 10px"></span>Đơn vị tính</a></li>
                 </ul>
                 <li id="thongke"  data-toggle="collapse" data-target="#divthongke">
-                    <a href="#"><span class="glyphicon glyphicon-lock" style="margin-right: 10px"></span>Báo cáo<span class="glyphicon glyphicon-menu-down"></span></a>
+                    <a href="#"><span class=" glyphicon glyphicon-info-sign" style="margin-right: 10px"></span>Báo cáo<span class="glyphicon glyphicon-menu-down"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="divthongke">
+                <ul class="sub-menu collapse" id="divthongke" >
 
                     <li><a href="thongke.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Thống kê</a></li>
                 </ul>
                 <li id="quantri">
-                    <a href="#"><span class="glyphicon glyphicon-lock" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-cog" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="divquantri">
                     <li><a href="frmNhanvien.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Quản lý tài khoản</a></li>
