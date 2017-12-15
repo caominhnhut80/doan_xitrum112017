@@ -62,7 +62,7 @@ function loadHangdangnhapkho() {
                     },
                     {
                         'title': 'Giá gốc',
-                        'data': 'gianhap',
+                        'data': 'gia',
                         'render': $.fn.dataTable.render.number('.', ',', 0, '')
                     },
                     {
@@ -199,7 +199,7 @@ function getOnehanglenModal(mahang) {
                 $('#modal_mahang').val(item.mahang);
                 $('#modal_tenhang').val(item.tenhang);
                 $("#modal_soluong").val(item.soluong);
-                $("#modal_giagoc").val(item.gianhap);
+                $("#modal_giagoc").val(item.gia);
                 $("#modal_thanhtien").val(item.thanhtien);
                 $('#modal_soluong').focus();
             });

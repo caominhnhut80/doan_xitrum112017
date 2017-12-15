@@ -34,7 +34,7 @@ function getallGia() {
                     { 'title': 'SL trong kho', 'data': 'soluong' },
                     { 'title': 'Đơn vị tính', 'data': 'donvitinh' },
                     {
-                        'title': 'Giá nhập vào', 'data': 'gianhap',
+                        'title': 'Giá nhập vào', 'data': 'gia',
                         'render': $.fn.dataTable.render.number('.', ',', 0, '')  // 0: o chữ số thập phân
                     },
                     {
@@ -104,9 +104,9 @@ function suagiaban(mahang,loai) {  // 0: lẻ, 1 :sỉ
                     sile = 1;
                 }
                    
-                $("#modal_gianhap").val(item.gianhap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                $("#modal_gianhap").val(item.gia.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
                 );
-                gg = item.gianhap;
+                gg = item.gia;
                 
             })
             $('#EditModal').modal('show');

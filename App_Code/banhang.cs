@@ -53,7 +53,7 @@ public class banhang : System.Web.Services.WebService
     public string getOnesanpham(string mahang)
     {
         DataSet ds = new DataSet();
-        ds = nt.getDatasetfromPROC("banhang_get", " where banhang.mahang='" + mahang + "'");
+        ds = nt.getDatasetfromPROC("banhang_get", " where chitietphieu.mahang='" + mahang + "'");
         if (ds == null) return "";
         else
             return nt.ConvertDataTabletoString(ds.Tables[0]);

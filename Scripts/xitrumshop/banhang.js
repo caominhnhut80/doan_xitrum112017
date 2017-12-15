@@ -138,7 +138,7 @@ function loadHangdangban() {
                     { 'title': 'Đơn vị tính', 'data': 'donvitinh' },
                     {
                         'title': 'Giá bán',
-                        'data': 'giaban',
+                        'data': 'gia',
                         'render': $.fn.dataTable.render.number('.', ',', 0, '')
                     },
                     {
@@ -270,7 +270,7 @@ function getOnehanglenModal(mahang) {
                 $('#modal_mahang').val(item.mahang);
                 $('#modal_tenhang').val(item.tenhang);
                 $("#modal_soluong").val(item.soluong);
-                $("#modal_giaban").val(item.giaban);
+                $("#modal_giaban").val(item.gia);
                 $("#modal_thanhtien").val(item.thanhtien);
                 $('#modal_kho').val(item.kho);
 

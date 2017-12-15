@@ -35,7 +35,7 @@ public class nhaphang : System.Web.Services.WebService
     public string getOnesanpham(string mahang)
     {
         DataSet ds = new DataSet();
-        ds = nt.getDatasetfromPROC("nhaphang_get", " where nhaphang.mahang='"+mahang +"'" );
+        ds = nt.getDatasetfromPROC("nhaphang_get", " where n.mahang='"+mahang +"'" );
         if (ds == null) return "";
         else
             return nt.ConvertDataTabletoString(ds.Tables[0]);
