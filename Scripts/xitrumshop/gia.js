@@ -24,7 +24,7 @@ function getallGia() {
             var table = $('#datatable').DataTable({
                 data: objdata,
                 "columnDefs": [
-                    { className: "dt-center", "targets": [0, 1,  3] },//canh giưa all body và header
+                    { className: "dt-center", "targets": [0, 1,  3,8] },//canh giưa all body và header
                     { className: "dt-right", "targets": [2,4, 5, 7] },  // canh phải những cột tiền
                     { "sClass": "numericCol", "aTargets": [2,4, 5, 7] }
                 ],
@@ -57,6 +57,7 @@ function getallGia() {
                             return '<a href="#" hidden  class="btn btn-success" onclick="suagiaban(\'' + mahang + '\',1);" style="margin-right:0px" >Sửa</a>'
                         },
                     },
+                    {'title':'Nhân viên đặt giá','data':'hoten'}
                 ],
                 "order": [[4, "asc"]],  //sort cột giá bán
                 destroy: true,
@@ -121,6 +122,7 @@ function UpdateGia() {
     var gia = parseInt($('#modal_gia').val());
     var mahang = $('#modal_mahang').val();
     var tenhang = $('#modal_tenhang').val();
+    var nhanvien_id = parseInt(sessionStorage.getItem('id'));
     //console.log(gg);
 
     if (gia <= gg) {
@@ -133,7 +135,7 @@ function UpdateGia() {
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
                 url: "gia.asmx/updateGiaban",
-                data: "{mahang:'" + mahang + "',giaban:" + gia + ",sile:"+sile +"}",
+                data: "{mahang:'" + mahang + "',giaban:" + gia + ",sile:"+sile +",nhanvien_id:"+nhanvien_id+"}",
                 dataType: "json",
                 success: function (data) {
                     if (!data.d) {  //ko thành công

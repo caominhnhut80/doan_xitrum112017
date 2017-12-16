@@ -54,7 +54,7 @@ function loadTable() {
                         }
                     },
                 ],
-                "order": [[1, "asc"]],  //sort cột 0 
+                "order": [[5, "desc"]],  //sort cột 0 
                 destroy: true,
                 "oLanguage": {
                     "sZeroRecords": "Không tìm thấy",

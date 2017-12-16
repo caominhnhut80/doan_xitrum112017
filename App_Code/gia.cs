@@ -42,7 +42,7 @@ public class gia : System.Web.Services.WebService
             return nt.ConvertDataTabletoString(ds.Tables[0]);
     }
     [WebMethod]
-    public bool updateGiaban(string mahang, long giaban, int sile)
+    public bool updateGiaban(string mahang, long giaban, int sile,int nhanvien_id)
     {
         using (SqlConnection con = new SqlConnection(ketnoi.kn))
         {
@@ -51,6 +51,7 @@ public class gia : System.Web.Services.WebService
             cmd.Parameters.AddWithValue("@mahang", mahang);
             cmd.Parameters.AddWithValue("@gia", giaban);
             cmd.Parameters.AddWithValue("@sile", sile);
+            cmd.Parameters.AddWithValue("@nhanvien_id", nhanvien_id);
             try
             {
                 con.Open();

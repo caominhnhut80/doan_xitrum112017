@@ -68,7 +68,7 @@ public class nhaphang : System.Web.Services.WebService
         }
     }
     [WebMethod]
-    public long tongtien_phieutam()
+    public int tongtien_phieutam()
     {
         using (SqlConnection con = new SqlConnection(ketnoi.kn))
         {
@@ -77,9 +77,9 @@ public class nhaphang : System.Web.Services.WebService
             try
             {
                 con.Open();
-                return (long)cmd.ExecuteScalar();
+                return (int)cmd.ExecuteScalar();
             }
-            catch (Exception )
+            catch (Exception ex)
             {
                 return -1;
                 //throw ex;

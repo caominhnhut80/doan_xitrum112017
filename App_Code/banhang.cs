@@ -59,7 +59,7 @@ public class banhang : System.Web.Services.WebService
             return nt.ConvertDataTabletoString(ds.Tables[0]);
     }
     [WebMethod]
-    public long tongtien_phieutam()
+    public int tongtien_phieutam()
     {
         using (SqlConnection con = new SqlConnection(ketnoi.kn))
         {
@@ -68,7 +68,7 @@ public class banhang : System.Web.Services.WebService
             try
             {
                 con.Open();
-                return (long)cmd.ExecuteScalar();
+                return (int)cmd.ExecuteScalar();
             }
             catch (Exception )
             {
@@ -79,7 +79,7 @@ public class banhang : System.Web.Services.WebService
         }
     }
     [WebMethod]
-    public long tongtien_phieuban(int phieu)
+    public int tongtien_phieuban(int phieu)
     {
         using (SqlConnection con = new SqlConnection(ketnoi.kn))
         {
@@ -89,7 +89,7 @@ public class banhang : System.Web.Services.WebService
             try
             {
                 con.Open();
-                return (long)cmd.ExecuteScalar();
+                return (int)cmd.ExecuteScalar();
             }
             catch (Exception)
             {
