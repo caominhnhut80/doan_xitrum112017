@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    //kiểm tra quyền
+    nhanvien_checkquyentruycapweb(parseInt(sessionStorage.getItem('quyen')), 'sanpham.aspx'); 
     loadTable();
     loadDonvitinh();
     $('#btSub').click(function () {

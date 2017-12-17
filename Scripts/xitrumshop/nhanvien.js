@@ -1,8 +1,6 @@
 ﻿$(document).ready(function () {
-    if (parseInt(sessionStorage.getItem('quyen')) != 0) {  // 0: admin mới đc phân quyền
-        alert('Bạn chưa được cấp quyền chức năng này');
-        window.location.replace('WaitingPage.aspx');
-    }
+    //kiểm tra quyền
+    nhanvien_checkquyentruycapweb(parseInt(sessionStorage.getItem('quyen')), 'nhanvien.aspx'); 
     loadTable();
     loadQuyen();
     $('#btSub').click(function () {

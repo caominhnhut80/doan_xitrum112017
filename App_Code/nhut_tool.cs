@@ -21,7 +21,7 @@ public class nhut_tool
         //
     }
 
-    public string ConvertDataTabletoString(DataTable dt)
+    public  string ConvertDataTabletoString(DataTable dt)
     {
 
         System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();

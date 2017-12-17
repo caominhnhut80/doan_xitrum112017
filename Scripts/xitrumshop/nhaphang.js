@@ -1,9 +1,6 @@
 ﻿$(function () {
-    if ( parseInt(sessionStorage.getItem('quyen')) !=1) {  //1: chủ mới đc nhập
-        alert('Bạn chưa được cấp quyền chức năng này');
-        
-        window.location.replace('WaitingPage.aspx');
-    }
+    //kiểm tra quyền
+    nhanvien_checkquyentruycapweb(parseInt(sessionStorage.getItem('quyen')), 'nhaphang.aspx'); 
     loadtenhang();
     loadHangdangnhapkho();
     $('#tenhang').focus();
@@ -151,7 +148,7 @@ function luukho() {
     var mahang = $('#mahang').val();
     var tenhang = $('#tenhang option:selected').text();
     var soluong = parseInt($('#soluong').val());
-    if (soluong <= 0 || $('#soluong').val()==='') {
+    if (soluong <= 0 || $('#soluong').val() === '') {
         hienthongbao(0, 'Số lượng không được để trống hoặc bằng 0');
         return;
     }
@@ -161,7 +158,7 @@ function luukho() {
         return;
     }
     var thanhtien = parseInt($('#thanhtien').val());
-   
+
     $.ajax({
         type: 'post',
         contentType: 'application/json;charset=utf-8',
@@ -179,7 +176,7 @@ function luukho() {
             }
         }
     });
-	
+
 }
 function hienModal(mahang) {
     getOnehanglenModal(mahang);
@@ -262,12 +259,12 @@ function xoahang(mahang) {
 }
 
 function ketthucphieu() {
-   
+
     var result = confirm("Bạn có chắc hoàn thành phiếu và lưu vào kho không?");
     if (result) {
         $('#modal_ghichu').val('');
         $('#ghichuModal').modal('show');
-        
+
 
     }
 }
@@ -277,9 +274,9 @@ function luughichu() {
         hienthongbao(0, 'Vui lòng nhập ghi chú');
         return;
     }
-        hoanthanhphieunhap(ghichu);
-        $('#ghichuModal').modal('hide');
-    
+    hoanthanhphieunhap(ghichu);
+    $('#ghichuModal').modal('hide');
+
 }
 function hoanthanhphieunhap(ghichu) {
 

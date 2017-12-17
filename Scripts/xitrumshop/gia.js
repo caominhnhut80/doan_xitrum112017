@@ -1,8 +1,6 @@
 ﻿$(function () {
-    if (parseInt(sessionStorage.getItem('quyen')) != 1) {  //1: chủ, chủ mới đc nhập giá bán
-        alert('Bạn chưa được cấp quyền chức năng này');
-        window.location.replace('WaitingPage.aspx');
-    }
+    //kiểm tra quyền
+    nhanvien_checkquyentruycapweb(parseInt(sessionStorage.getItem('quyen')), 'gia.aspx'); 
     getallGia();
     $("#modal_gia").chichoso();
     var gg;  //giá gốc

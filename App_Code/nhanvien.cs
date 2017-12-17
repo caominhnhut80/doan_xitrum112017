@@ -211,4 +211,37 @@ public class nhanvien : System.Web.Services.WebService
 
         return kq;
     }
+    [WebMethod]
+    public bool nhanvien_checkquyentruycapweb(int quyen_id,string tentrang)
+    {
+      
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("nhanvien_checkquyentruycapweb", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@quyen_id", quyen_id);
+            cmd.Parameters.AddWithValue("@tentrang", tentrang);
+           
+            try
+            {
+                con.Open();
+                if ((int)cmd.ExecuteScalar() > 0)
+                    return true;
+                else
+                    return false;
+
+
+            }
+            catch (Exception)
+            {
+                return false;
+                //throw ex;
+
+            }
+        }
+
+      
+    }
 }

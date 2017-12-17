@@ -80,6 +80,7 @@
                 <ul class="sub-menu collapse" id="divquantri">
                     <li><a href="frmNhanvien.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Quản lý tài khoản</a></li>
                     <li><a href="frmQuyen.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Tạo quyền</a></li>
+                    <li><a href="frmQuantri.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Phân quyền truy cập trang</a></li>
                 </ul>
             </ul>
         </div>

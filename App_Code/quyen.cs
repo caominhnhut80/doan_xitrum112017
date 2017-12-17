@@ -140,4 +140,30 @@ public class quyen : System.Web.Services.WebService
             }
         }
     }
+   
+    public DataTable quyen_laydanhsach()
+    {
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("quyen_get", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                con.Open();
+                SqlDataAdapter sa = new SqlDataAdapter(cmd);
+                sa.Fill(ds);
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return ds.Tables[0];
+    }
 }

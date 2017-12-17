@@ -1,9 +1,6 @@
 ﻿$(function () {
-    //if (parseInt(sessionStorage.getItem('quyen')) != 1 && parseInt(sessionStorage.getItem('quyen')) != 2) {  //1: chủ và nhân viên mới đc bán
-    //    alert('Bạn chưa được cấp quyền chức năng này');
-    //    window.location.replace('default.aspx');
-    //}
-    
+    //kiểm tra quyền
+    nhanvien_checkquyentruycapweb(parseInt(sessionStorage.getItem('quyen')),'banhang.aspx'); 
     var gb = 0;
     loadtenhang();
     loadHangdangban();
