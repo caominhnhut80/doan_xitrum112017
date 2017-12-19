@@ -73,6 +73,7 @@
 
                     <li><a href="thongke.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Thống kê</a></li>
                     <li><a href="frmSanpham_lichsu.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Lịch sử sản phẩm</a></li>
+                    <li><a href="frmBaocaodoanhthu.aspx"><span class="glyphicon glyphicon-list-alt" style="margin-right: 10px"></span>Báo cáo doanh thu</a></li>
                 </ul>
                 <li id="quantri">
                     <a href="#"><span class="glyphicon glyphicon-cog" style="margin-right: 10px"></span>Quản trị<span class="glyphicon glyphicon-menu-down"></span></a>

@@ -86,7 +86,7 @@ function luusp() {
    
 }
 function xoadvt(id) {
-    var result = confirm("Bạn có chắc xóa đơn vị tính co id " + id + " không?");
+    var result = confirm("Bạn có chắc xóa đơn vị tính có id " + id + " không?");
     if (result) {
         $.ajax({
             type: "POST",
@@ -99,7 +99,7 @@ function xoadvt(id) {
                     hienthongbao(1, 'Xóa thành công');
 
                 } else {
-                    hienthongbao(0, 'Xóa thất bại');
+                    hienthongbao(0, 'Xóa thất bại ! Đơn vị tính đã được sử dụng');
                     $('#tendonvitinh').focus();
                 }
             }

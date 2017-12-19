@@ -41,6 +41,12 @@ function loadTable() {
             var objdata = $.parseJSON(data.d);
             var table = $('#datatable').DataTable({
                 data: objdata,
+                "columnDefs": [
+                    { className: "dt-center", "targets": [0, 1, 2,3,5,6] },//canh giưa all body và header
+                   // { className: "dt-right", "targets": [3, 5, 6] },  // canh phải những cột tiền
+                    { className: "dt-nowrap", "targets": [4] },  // các nút ko cần wrap
+                 //   { "sClass": "numericCol", "aTargets": [3, 5, 6] }
+                ],
                 columns: [
                     {'title': 'STT', 'data': 'STT'},
                     {'title': 'Username','data': 'username'},
@@ -52,6 +58,15 @@ function loadTable() {
                         'render': function (id) {
                             return '<a href="#" class="btn btn-success btn-sm" onclick="suanv(' + id + ');">Sửa</a>' +
                                 '<a href="#"  class="btn btn-danger btn-sm" style="margin-left:10px;" onclick="xoanv(' + id + ');">Xóa</a>'
+                        }
+                       
+                    },
+                    {'title':'Tình trạng tài khoản','data':'tinhtrang'},
+                    {
+                        'title':'',
+                         'data': 'id',
+                        'render': function (id) {
+                            return '<a href="#" class="btn btn-success btn-sm" onclick="khoataikhoan(' + id + ');">Chuyển trạng thái</a>'
                         }
                     }
 
@@ -70,9 +85,7 @@ function loadTable() {
                         "sNext": "   Sau   "
                     }
                 },
-                "columnDefs": [
-                    { className: "dt-center", "targets": [0, 1, 2] }
-                ]
+                
             });
         }
     });
@@ -198,6 +211,9 @@ function UpdateNV() {
         }
 
     })
+
+}
+function khoataikhoan(id) {
 
 }
   
