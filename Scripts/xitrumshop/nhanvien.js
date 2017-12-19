@@ -42,9 +42,9 @@ function loadTable() {
             var table = $('#datatable').DataTable({
                 data: objdata,
                 "columnDefs": [
-                    { className: "dt-center", "targets": [0, 1, 2,3,5,6] },//canh giưa all body và header
+                    { className: "dt-center", "targets": [0, 1, 2,3,4] },//canh giưa all body và header
                    // { className: "dt-right", "targets": [3, 5, 6] },  // canh phải những cột tiền
-                    { className: "dt-nowrap", "targets": [4] },  // các nút ko cần wrap
+                    { className: "dt-nowrap", "targets": [5] },  // các nút ko cần wrap
                  //   { "sClass": "numericCol", "aTargets": [3, 5, 6] }
                 ],
                 columns: [
@@ -52,21 +52,13 @@ function loadTable() {
                     {'title': 'Username','data': 'username'},
                     { 'title': 'Họ tên', 'data': 'hoten' },
                     { 'title': 'Quyền', 'data': 'tenquyen' },
-                    {
-                        'title': '',
-                        'data': 'id',
-                        'render': function (id) {
-                            return '<a href="#" class="btn btn-success btn-sm" onclick="suanv(' + id + ');">Sửa</a>' +
-                                '<a href="#"  class="btn btn-danger btn-sm" style="margin-left:10px;" onclick="xoanv(' + id + ');">Xóa</a>'
-                        }
-                       
-                    },
+                   
                     {'title':'Tình trạng tài khoản','data':'tinhtrang'},
                     {
                         'title':'',
                          'data': 'id',
                         'render': function (id) {
-                            return '<a href="#" class="btn btn-success btn-sm" onclick="khoataikhoan(' + id + ');">Chuyển trạng thái</a>'
+                            return '<a href="#" class="btn btn-success btn-sm" onclick="suanv(' + id + ');">Điều chỉnh</a>'
                         }
                     }
 
@@ -160,8 +152,28 @@ function loadQuyenModal() {
         }
     });
 }
+function loadTinhtrangModal() {
+    $('#modal_tinhtrang').find('option').remove();
+    $.ajax({
+        url: "nhanvien.asmx/tinhtrang_select",
+        method: "post",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            var objdata = $.parseJSON(data.d);
+            $.each(objdata, function (i, item) {
+                $('#modal_tinhtrang').append($("<option/>", {
+                    value: item.active_id,
+                    text: item.tinhtrang
+                }
+                ));
+            });
+        }
+    });
+}
 function suanv(id) {
     loadQuyenModal();
+    loadTinhtrangModal();
     $.ajax({
         type: "POST",
         contentType: "application/json; charset=utf-8",
@@ -175,9 +187,10 @@ function suanv(id) {
 
                 $('#modal_id').val(id);
                 $('#modal_username').val(item.username);
-                $('#modal_password').val(item.password);
+                $('#modal_password').val('');
                 $('#modal_tennhanvien').val(item.hoten);
                 $("#modal_quyen").val(item.quyen).change();
+                $("#modal_tinhtrang").val(item.active_id).change();
                 $('#modal_username').focus();
             })
 
@@ -190,14 +203,15 @@ function UpdateNV() {
     var password = $('#modal_password').val();
     var tennhanvien = $('#modal_tennhanvien').val();
     var quyen = parseInt($('#modal_quyen').val());
-    if (username == '' || password == '' || tennhanvien == '') {
+    var tinhtrang = parseInt($('#modal_tinhtrang').val());
+    if (username == '' ||  tennhanvien == '') {
         alert('Vui lòng nhập Username,password và họ tên');
         return;
     }
     $.ajax({
         type: "POST",
         url: "nhanvien.asmx/nhanvien_sua",
-        data: "{id:" + id + ",username:'" + username + "',password:'" + password + "',hoten:'" + tennhanvien + "',quyen:" + quyen + " }",
+        data: "{id:" + id + ",username:'" + username + "',password:'" + password + "',hoten:'" + tennhanvien + "',quyen:" + quyen + ",active_id:"+ tinhtrang +" }",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
@@ -214,6 +228,7 @@ function UpdateNV() {
 
 }
 function khoataikhoan(id) {
-
+    $('#EditModal').modal('show');
+    $('#modal_soluong').focus();
 }
   

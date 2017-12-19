@@ -177,7 +177,7 @@ public class nhanvien : System.Web.Services.WebService
         return kq;
     }
     [WebMethod]
-    public bool nhanvien_sua(int id,string username, string password, string hoten, int quyen)
+    public bool nhanvien_sua(int id,string username, string password, string hoten, int quyen,int active_id)
     {
         bool kq = false;
         DataSet ds = new DataSet();
@@ -191,6 +191,7 @@ public class nhanvien : System.Web.Services.WebService
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@hoten", hoten);
             cmd.Parameters.AddWithValue("@quyen", quyen);
+            cmd.Parameters.AddWithValue("@active_id", active_id);
             try
             {
                 con.Open();
@@ -243,5 +244,32 @@ public class nhanvien : System.Web.Services.WebService
         }
 
       
+    }
+    [WebMethod]
+    public string tinhtrang_select()
+    {
+
+        DataSet ds = new DataSet();
+        using (SqlConnection con = new SqlConnection(ketnoi.kn))
+        {
+
+            SqlCommand cmd = new SqlCommand("tinhtrang_select", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                con.Open();
+                SqlDataAdapter sa = new SqlDataAdapter(cmd);
+                sa.Fill(ds);
+
+            }
+            catch (Exception)
+            {
+
+                //throw ex;
+
+            }
+        }
+
+        return nt.ConvertDataTabletoString(ds.Tables[0]);
     }
 }
